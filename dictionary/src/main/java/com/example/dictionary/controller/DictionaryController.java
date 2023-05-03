@@ -89,7 +89,7 @@ public class DictionaryController {
         return entries;
     }
 
-    @GetMapping("/getWordsThatContainConsecutiveLetters/")
+    @GetMapping("/getWordsThatContainConsecutiveLetters")
     public List<Entry> getWordsThatContainConsecutiveLetters() {
 
         StopWatch sw = new StopWatch();
