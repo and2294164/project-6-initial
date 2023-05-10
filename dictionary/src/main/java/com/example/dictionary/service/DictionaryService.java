@@ -49,6 +49,18 @@ public class DictionaryService {
                 .collect(Collectors.toList());
     }
 
+    public List<Entry> getWordsEndingWith(String value) {
+
+        return DictionaryReference.getDictionary()
+                .entrySet()             // returns sets of map entry objects
+                .stream()
+                .filter(entry -> entry.getKey()
+                        .endsWith(value))
+                .sorted(Map.Entry.comparingByKey(Comparator.naturalOrder()))
+                .map(entry -> new Entry(entry.getKey(), entry.getValue()))
+                .collect(Collectors.toList());
+    }
+
     public List<Entry> getWordsThatContainConsecutiveDoubleLetters() {
 
         return DictionaryReference.getDictionary()
